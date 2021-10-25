@@ -23,7 +23,7 @@ export const Container = styled.div`
     flex-flow: column;
     justify-content: space-between;
 
-    header {
+    .top {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -44,7 +44,7 @@ export const Container = styled.div`
         }
 
         &:hover {
-          filter: brightness(1.1);
+          filter: brightness(1.3);
         }
       }
     }

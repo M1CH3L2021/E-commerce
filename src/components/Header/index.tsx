@@ -19,7 +19,7 @@ export function Header() {
         <div>
           <input 
             type="text" 
-            placeholder="Procurando por algo especíico?" 
+            placeholder="Procurando por algo específico?" 
             value={inputValue} 
             onChange={(event) => setInputValue(event.target.value)}
           />

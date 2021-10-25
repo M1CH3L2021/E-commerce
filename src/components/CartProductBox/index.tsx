@@ -24,12 +24,12 @@ export function CartProductBox() {
       <img src={shirtImg} alt="" />
 
       <div className="info">
-        <header>
+        <div className="top">
           <h3>Camiseta not today</h3>
           <button>
             <img src={trashIcon} alt="" />
           </button>
-        </header>
+        </div>
         <p>
           Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.
         </p>

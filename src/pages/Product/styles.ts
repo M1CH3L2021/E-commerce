@@ -9,10 +9,11 @@ export const Container = styled.div`
   display: flex;
   gap: 3rem;
 
-  img {
+  img.product-image {
     width: 50%;
     max-width: 64rem;
-    max-height: 58rem;
+    height: 58rem;
+    object-fit: cover;
     border-radius: .4rem;
   }
 
@@ -27,6 +28,7 @@ export const Container = styled.div`
     div {
       span:first-child {
         font-size: 1.6rem;
+        text-transform: capitalize;
       }
 
       h1 {

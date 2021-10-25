@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 interface ContainerProps {
   selectedFilter: {
-    filter: 'all' | 'shirts' | 'mugs'
+    filter: 'todos' | 'camiseta' | 'caneca'
   }
 }
 
 export const Container = styled.div`
   max-width: 120rem;
   margin: 0 auto;
-  padding: 0 4%;
+  padding: 0 4% 7rem;
 
   ul {
     display: flex;
@@ -31,18 +31,18 @@ export const Container = styled.div`
       }
 
       &.all {
-        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'all' ? 600 : 400};
-        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'all' ? '.4rem solid #FFA585' : 'none'};
+        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'todos' ? 600 : 400};
+        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'todos' ? '.4rem solid #FFA585' : 'none'};
       }
 
       &.shirts {
-        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'shirts' ? 600 : 400};
-        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'shirts' ? '.4rem solid #FFA585' : 'none'};
+        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'camiseta' ? 600 : 400};
+        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'camiseta' ? '.4rem solid #FFA585' : 'none'};
       }
 
       &.mugs {
-        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'mugs' ? 600 : 400};
-        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'mugs' ? '.4rem solid #FFA585' : 'none'};
+        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'caneca' ? 600 : 400};
+        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'caneca' ? '.4rem solid #FFA585' : 'none'};
       }
     }
   }

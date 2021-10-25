@@ -1,17 +1,33 @@
 import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
-import shirtImg from '../../assets/camiseta.png'
 
-export function ProductBox() {
+interface ProductBoxProps {
+  name: string
+  image: string
+  price: string
+  type: string
+  description: string
+}
+
+export function ProductBox({ name, image, price, type, description }: ProductBoxProps) {
   return (
     <Container>
-      <img src={shirtImg} alt="Camiseta not today" />
-      <h3>Camiseta not today</h3>
+      <img src={image} alt={name} />
+      <h3>{name}</h3>
       <hr />
       <div>
-        <span>R$ 78,00</span>
-        <Link to="/Product" className="product-button">
+        <span>{price}</span>
+        <Link to={{
+          pathname: '/Product',
+          state: {
+            name: name,
+            image: image,
+            price: price,
+            type: type,
+            description: description
+          }
+        }} className="product-button">
           Ver mais
         </Link>
       </div>

@@ -7,9 +7,12 @@ export const Container = styled.div`
   background: rgba(255,255,255,.4);
   border-radius: .4rem;
   text-align: left;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,.2);
 
   img {
     width: 100%;
+    height: 30rem;
+    object-fit: cover;
     border-radius: .4rem .4rem 0 0;
   }
 
