@@ -32,6 +32,7 @@ export const Container = styled.section`
 
   aside {
     width: 30%;
+    min-height: 63rem;
     max-width: 35rem;
     padding: 2rem;
     background: var(--white);
@@ -83,6 +84,7 @@ export const Container = styled.section`
       button {
         width: 100%auto;
         height: 4.4rem;
+        margin-bottom: 4rem;
         background: #51B853;
         border: none;
         border-radius: .4rem;
@@ -118,6 +120,25 @@ export const Container = styled.section`
           &:hover {
             filter: brightness(1.5);
           }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1170px) {
+    & {
+      flex-flow: column;
+
+      aside {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+
+        button {
+          width: 100%;
+          max-width: 30rem;
+          margin: 0 auto;
+          margin-bottom: 4rem;
         }
       }
     }

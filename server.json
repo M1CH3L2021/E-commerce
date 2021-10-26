@@ -5,108 +5,108 @@
       "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNoaXJ0c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta gatinho Original",
       "type": "camiseta",
-      "price": "60.00",
+      "price": 60.00,
       "description": "lorem ipsum",
-      "amount": 8
+      "stock": 8
     },
     {
       "id": 2,
       "image": "https://images.unsplash.com/photo-1551799517-eb8f03cb5e6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta not today",
       "type": "camiseta",
-      "price": "78.00",
+      "price": 78.00,
       "description": "lorem ipsum",
-      "amount": 5
+      "stock": 5
     },
     {
       "id": 3,
       "image": "https://images.unsplash.com/photo-1564859227552-81fde4a1df0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta cobbles classic",
       "type": "camiseta",
-      "price": "69.99",
+      "price": 69.99,
       "description": "lorem ipsum",
-      "amount": 3
+      "stock": 3
     },
     {
       "id": 4,
       "image": "https://images.unsplash.com/photo-1583744999783-efe9dc5eac91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta Yahweh Yireh",
       "type": "camiseta",
-      "price": "78.00",
+      "price": 78.00,
       "description": "lorem ipsum",
-      "amount": 6
+      "stock": 6
     },
     {
       "id": 5,
       "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta Outcast",
       "type": "camiseta",
-      "price": "75.00",
+      "price": 75.00,
       "description": "lorem ipsum",
-      "amount": 2
+      "stock": 2
     },
     {
       "id": 6,
       "image": "https://images.unsplash.com/photo-1554526735-356bb52de232?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta Methodical Coffee",
       "type": "camiseta",
-      "price": "78.00",
+      "price": 78.00,
       "description": "lorem ipsum",
-      "amount": 4
+      "stock": 4
     },
     {
       "id": 7,
       "image": "https://images.unsplash.com/photo-1571945153237-4929e783af4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta fucking awesome",
       "type": "camiseta",
-      "price": "80.00",
+      "price": 80.00,
       "description": "lorem ipsum",
-      "amount": 2
+      "stock": 2
     },
     {
       "id": 8,
       "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Camiseta punk paz e amor",
       "type": "camiseta",
-      "price": "80.00",
+      "price": 80.00,
       "description": "lorem ipsum",
-      "amount": 5
+      "stock": 5
     },
     {
       "id": 9,
       "image": "https://images.unsplash.com/photo-1542556398-95fb5b9f9b48?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVnc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
       "name": "Combo canecas fill me up",
       "type": "caneca",
-      "price": "65.99",
+      "price": 65.99,
       "description": "lorem ipsum",
-      "amount": 2
+      "stock": 2
     },
     {
       "id": 10,
       "image": "https://images.unsplash.com/photo-1488381397757-59d6261610f4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG11Z3N8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
       "name": "Caneca never settle",
       "type": "caneca",
-      "price": "38.00",
+      "price": 38.00,
       "description": "lorem ipsum",
-      "amount": 4
+      "stock": 4
     },
     {
       "id": 11,
       "image": "https://images.unsplash.com/photo-1481973946307-512988dde8b1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fG11Z3N8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
       "name": "Caneca três árvores",
       "type": "caneca",
-      "price": "29.99",
+      "price": 29.99,
       "description": "lorem ipsum",
-      "amount": 2
+      "stock": 2
     },
     {
       "id": 12,
       "image": "https://images.unsplash.com/photo-1520031473529-2c06dea61853?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
       "name": "Caneca black ring",
       "type": "caneca",
-      "price": "36.00",
+      "price": 36.00,
       "description": "lorem ipsum",
-      "amount": 5
+      "stock": 5
     }
   ]
 }

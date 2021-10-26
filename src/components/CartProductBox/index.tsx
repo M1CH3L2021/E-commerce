@@ -1,45 +1,73 @@
 import { useState } from 'react';
+import { formatPrice } from '../../util/format';
+import { toast } from 'react-toastify';
 
 import { Container } from './styles';
 
-import shirtImg from '../../assets/camiseta.png'
 import trashIcon from '../../assets/trash.svg'
+import { useCart } from '../../hooks/useCart';
 
-export function CartProductBox() {
-  const [cartProductAmount, setCartProductAmount] = useState(0)
+interface CartProduct {
+  id: number
+  name: string
+  image: string
+  price: number
+  type: string
+  amount: number
+  stock: number
+  description: string
+}
+interface CartProductBoxProps {
+  cartProductAmount: number
+  setCartProductAmount: (cartProductAmount: number) => void
+  product: CartProduct
+  name: string
+  price: number
+  description: string
+  amount?: number
+  stock: number
+  image: string
+}
 
-  const decreaseCartProductAmount = () => {
-    return cartProductAmount !== 0 ?
-      setCartProductAmount(cartProductAmount - 1) :
-      false
+export function CartProductBox({ cartProductAmount, setCartProductAmount, product, name, price, description, amount, stock, image }: CartProductBoxProps) {
+  const { removeProductFromCart, increaseCartProductAmount, decreaseCartProductAmount } = useCart()
+
+  const decreaseAmount = (product: CartProduct) => {
+    decreaseCartProductAmount(product)
+    if (cartProductAmount > 1) {
+      setCartProductAmount(cartProductAmount - 1)
+    }
   }
 
-  const increaseCartProductAmount = () => {
-    setCartProductAmount(cartProductAmount + 1)
+  const increaseAmount = (product: CartProduct) => {
+    increaseCartProductAmount(product)
+    if (cartProductAmount !== stock) {
+      setCartProductAmount(cartProductAmount + 1)
+    }
   }
 
   return (
     <Container>
 
-      <img src={shirtImg} alt="" />
+      <img src={image} alt={name} />
 
       <div className="info">
         <div className="top">
-          <h3>Camiseta not today</h3>
+          <h3>{name}</h3>
           <button>
-            <img src={trashIcon} alt="" />
+            <img src={trashIcon} alt="remover" loading="lazy" onClick={() => removeProductFromCart(product)}/>
           </button>
         </div>
         <p>
-          Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.
+          {description}
         </p>
         <div className="amount">
           <div>
-            <button onClick={decreaseCartProductAmount}>-</button>
-            <input type="number" value={cartProductAmount}/>
-            <button onClick={increaseCartProductAmount}>+</button>
+            <button onClick={() => decreaseAmount(product)}>-</button>
+            <input type="number" readOnly value={amount}/>
+            <button onClick={() => increaseAmount(product)}>+</button>
           </div>
-          <span>R$ 89,90</span>
+          <span>{formatPrice(amount !== undefined ? price * amount : price)}</span>
         </div>
       </div>
 

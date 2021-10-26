@@ -1,19 +1,35 @@
-import { useContext, useEffect, useState } from 'react';
-import { ProductsContext } from '../../context/productsContext';
+import { useEffect, useState } from 'react';
+import { ProductBox } from './../../components/ProductBox';
+import { api } from '../../services/api';
 
 import { Container } from './styles';
-import { ProductBox } from './../../components/ProductBox/index';
-interface ISelectedFilter {
+interface SelectedFilter {
   filter: 'todos' | 'camiseta' | 'caneca'
 }
 
+interface Products {
+  product: Products
+  id: number
+  image: string
+  name: string
+  type: string
+  price: number
+  description: string
+  stock: number
+}
+
 export function Home() {
-  const [selectedFilter, setSelectedFilter] = useState<ISelectedFilter>({ filter: 'todos' })
-  const { products } = useContext(ProductsContext)
+  const [selectedFilter, setSelectedFilter] = useState<SelectedFilter>({ filter: 'todos' })
+  const [products, setProducts] = useState<Products[]>([])
 
   useEffect(() => {
-    console.log(selectedFilter)
-  }, [selectedFilter])
+    const loadData = async () => {
+      api.get('/products')
+      .then(response => setProducts(response.data as Products[]))
+    }
+
+    loadData()
+  }, [])
 
   return (
     <Container selectedFilter={selectedFilter}>
@@ -30,6 +46,9 @@ export function Home() {
             if (product.type === 'camiseta' || product.type === 'caneca')
               return (
                 <ProductBox
+                  key={product.id}
+                  id={product.id}
+                  product={product}
                   name={product.name}
                   image={product.image}
                   price={product.price}
@@ -45,6 +64,9 @@ export function Home() {
             if (product.type === 'camiseta')
               return (
                 <ProductBox
+                  key={product.id}
+                  id={product.id}
+                  product={product}
                   name={product.name}
                   image={product.image}
                   price={product.price}
@@ -60,6 +82,9 @@ export function Home() {
             if (product.type === 'caneca')
               return (
                 <ProductBox
+                  key={product.id}
+                  id={product.id}
+                  product={product}
                   name={product.name}
                   image={product.image}
                   price={product.price}

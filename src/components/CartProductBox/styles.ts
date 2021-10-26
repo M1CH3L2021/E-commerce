@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: 73rem;
+  height: 21rem;
+  width: 73rem;
   padding-right: 1.6rem;
   background: var(--white);
   color: var(--gray-text);
@@ -13,11 +13,13 @@ export const Container = styled.div`
   gap: 3rem;
 
   img {
-    height: 21rem;
+    width: 25rem;
+    object-fit: cover;
     border-radius: .8rem 0 0 .8rem;
   }
 
   div.info {
+    width: 100%;
     padding: 2rem 0%;
     display: flex;
     flex-flow: column;
@@ -37,6 +39,8 @@ export const Container = styled.div`
       button {
         border: none;
         background: transparent;
+
+        transition: filter .3s;
         
         img {
           height: 2.4rem;
@@ -44,14 +48,14 @@ export const Container = styled.div`
         }
 
         &:hover {
-          filter: brightness(1.3);
+          filter: brightness(1.5);
         }
       }
     }
 
     p {
-      font-size: 1.2rem;
       margin-bottom: 2.5rem;
+      font-size: 1.2rem;
     }
 
     div.amount {
@@ -78,6 +82,8 @@ export const Container = styled.div`
           display: flex;
           align-items: center;
           justify-content: center;
+
+          transition: filter .3s;
 
           &:hover {
             filter: brightness(.9);
@@ -106,6 +112,30 @@ export const Container = styled.div`
         font-size: 1.6rem;
         font-weight: 600;
         color: var(--black);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1170px) {
+    & {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    & {
+      height: max-content;
+      padding-right: 0;
+      flex-flow: column;
+      gap: 0;
+
+      > img {
+        width: 100%;
+        border-radius: .8rem .8rem 0 0;
+      }
+
+      > div.info {
+        padding: 2rem;
       }
     }
   }

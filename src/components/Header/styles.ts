@@ -45,7 +45,7 @@ export const Container = styled.header`
         border-radius: .8rem;
         border: none;
         outline:none;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
       }
 
       .cart-button {
@@ -70,7 +70,32 @@ export const Container = styled.header`
           width: 1.7rem;
           border-radius: 50%;
           background: #DE3838;
+          color: var(--white);
+          font-size: 1.2rem;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    div.center {
+      height: auto;
+      padding: 1.5rem 0;
+      flex-flow: column;
+      justify-content: center;
+      gap: 1.5rem;
+
+      div{
+        width: 100%;
+        justify-content: center;
+      }
+
+      input {
+        max-width: 80%;
       }
     }
   }

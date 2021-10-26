@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useCart } from '../../hooks/useCart';
 import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
@@ -6,7 +7,9 @@ import shoppingBagIcon from '../../assets/shopping-bag.svg'
 
 export function Header() {
   const [inputValue, setInputValue] = useState('')
-  const [isThereProductInCart, setIsThereProductInCart] = useState(false)
+  const { cart } = useCart()
+
+  const isThereProductInCart = cart.length === 0 ? false : true
 
   return (
     <Container>
@@ -25,7 +28,7 @@ export function Header() {
           />
           <Link to="/Cart" className="cart-button">
             <img src={shoppingBagIcon} alt="sacola" />
-            {isThereProductInCart && <div className="cart-amount"></div>}
+            {isThereProductInCart && <div className="cart-amount">{cart.length}</div>}
           </Link>
         </div>
 

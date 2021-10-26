@@ -1,26 +1,41 @@
 import { Link } from 'react-router-dom';
+import { formatPrice } from '../../util/format';
 
 import { Container } from './styles';
 
-interface ProductBoxProps {
+interface Product {
+  id: number
   name: string
   image: string
-  price: string
+  price: number
+  type: string
+  description: string
+}
+interface ProductBoxProps {
+  product: Product
+  id: number
+  name: string
+  image: string
+  price: number
   type: string
   description: string
 }
 
-export function ProductBox({ name, image, price, type, description }: ProductBoxProps) {
+export function ProductBox({ id, product, name, image, price, type, description }: ProductBoxProps) {
   return (
     <Container>
-      <img src={image} alt={name} />
+      <img src={image} alt={name} loading="lazy" />
       <h3>{name}</h3>
       <hr />
       <div>
-        <span>{price}</span>
+        <span>
+          {formatPrice(price)}
+        </span>
         <Link to={{
           pathname: '/Product',
           state: {
+            id: id,
+            product: product,
             name: name,
             image: image,
             price: price,

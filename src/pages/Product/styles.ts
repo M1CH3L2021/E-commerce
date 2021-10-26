@@ -90,4 +90,22 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 700px) {
+    & {
+      flex-flow: column;
+      
+      img.product-image {
+        width: 100%;
+      }
+
+      aside {
+        width: 100%;
+
+        p:last-child {
+          margin-bottom: 5rem;
+        }
+      }
+    }
+  }
 `;
