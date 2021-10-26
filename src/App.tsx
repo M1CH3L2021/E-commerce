@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import { GlobalStyle } from './styles/global';
 
 export function App() {
-
   return (
     <Router>
       <CartProvider>

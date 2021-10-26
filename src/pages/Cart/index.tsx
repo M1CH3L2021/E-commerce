@@ -44,41 +44,40 @@ export function Cart() {
       </main>
 
       {cart.length !== 0 && (
-      <aside>
+        <aside>
 
-        <div className="abstract">
-          <h1>Resumo do pedido</h1>
+          <div className="abstract">
+            <h1>Resumo do pedido</h1>
 
-          <div>
-            <span>Subtotal de produtos</span>
-            <span>{formatPrice(totalPrice)}</span>
+            <div>
+              <span>Subtotal de produtos</span>
+              <span>{formatPrice(totalPrice)}</span>
+            </div>
+
+            <div>
+              <span>Entrega</span>
+              <span>R$ 40,00</span>
+            </div>
+
+            <hr />
+
+            <div className="total">
+              <span>Total</span>
+              <span>{formatPrice(totalPrice + 40)}</span>
+            </div>
+
+            <button>Finalizar a compra</button>
           </div>
 
-          <div>
-            <span>Entrega</span>
-            <span>R$ 40,00</span>
-          </div>
+          <ul>
+            <li><a href="#">Ajuda</a></li>
+            <li><a href="#">Reembolsos</a></li>
+            <li><a href="#">Entregas e frete</a></li>
+            <li><a href="#">Trocas e devoluções</a></li>
+          </ul>
 
-          <hr />
-
-          <div className="total">
-            <span>Total</span>
-            <span>{formatPrice(totalPrice + 40)}</span>
-          </div>
-
-          <button>Finalizar a compra</button>
-        </div>
-
-        <ul>
-          <li><a href="#">Ajuda</a></li>
-          <li><a href="#">Reembolsos</a></li>
-          <li><a href="#">Entregas e frete</a></li>
-          <li><a href="#">Trocas e devoluções</a></li>
-        </ul>
-
-      </aside>
+        </aside>
       )}
-
     </Container>
   );
 };

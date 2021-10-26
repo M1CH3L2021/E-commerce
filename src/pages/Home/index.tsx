@@ -3,6 +3,7 @@ import { ProductBox } from './../../components/ProductBox';
 import { api } from '../../services/api';
 
 import { Container } from './styles';
+
 interface SelectedFilter {
   filter: 'todos' | 'camiseta' | 'caneca'
 }

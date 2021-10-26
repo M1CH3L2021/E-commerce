@@ -1,11 +1,8 @@
-import { useState } from 'react';
+import { useCart } from '../../hooks/useCart';
 import { formatPrice } from '../../util/format';
-import { toast } from 'react-toastify';
 
 import { Container } from './styles';
-
 import trashIcon from '../../assets/trash.svg'
-import { useCart } from '../../hooks/useCart';
 
 interface CartProduct {
   id: number
