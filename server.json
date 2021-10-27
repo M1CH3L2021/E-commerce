@@ -6,7 +6,7 @@
       "name": "Camiseta gatinho Original",
       "type": "camiseta",
       "price": 60.00,
-      "description": "lorem ipsum",
+      "description": "Camiseta gatinho azul/cinza feminina.",
       "stock": 8
     },
     {
@@ -15,16 +15,16 @@
       "name": "Camiseta not today",
       "type": "camiseta",
       "price": 78.00,
-      "description": "lorem ipsum",
+      "description": "Camiseta not today laranja feminina.",
       "stock": 5
     },
     {
       "id": 3,
       "image": "https://images.unsplash.com/photo-1564859227552-81fde4a1df0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60",
-      "name": "Camiseta cobbles classic",
+      "name": "Camiseta Cobbles Classic",
       "type": "camiseta",
       "price": 69.99,
-      "description": "lorem ipsum",
+      "description": "Camiseta Cobbles Classic branca masculina.",
       "stock": 3
     },
     {
@@ -33,7 +33,7 @@
       "name": "Camiseta Yahweh Yireh",
       "type": "camiseta",
       "price": 78.00,
-      "description": "lorem ipsum",
+      "description": "Camiseta Yahweh Yireh preta feminina.",
       "stock": 6
     },
     {
@@ -42,7 +42,7 @@
       "name": "Camiseta Outcast",
       "type": "camiseta",
       "price": 75.00,
-      "description": "lorem ipsum",
+      "description": "Camiseta Outcast branca unissex.",
       "stock": 2
     },
     {
@@ -51,7 +51,7 @@
       "name": "Camiseta Methodical Coffee",
       "type": "camiseta",
       "price": 78.00,
-      "description": "lorem ipsum",
+      "description": "Camiseta Methodical Coffee cinza masculina",
       "stock": 4
     },
     {
@@ -60,7 +60,7 @@
       "name": "Camiseta fucking awesome",
       "type": "camiseta",
       "price": 80.00,
-      "description": "lorem ipsum",
+      "description": "Camiseta fucking awesome branca unissex",
       "stock": 2
     },
     {
@@ -69,7 +69,7 @@
       "name": "Camiseta punk paz e amor",
       "type": "camiseta",
       "price": 80.00,
-      "description": "lorem ipsum",
+      "description": "Camiseta punk paz e amor preta feminina",
       "stock": 5
     },
     {
@@ -78,7 +78,7 @@
       "name": "Combo canecas fill me up",
       "type": "caneca",
       "price": 65.99,
-      "description": "lorem ipsum",
+      "description": "Canecas fill me up brancas",
       "stock": 2
     },
     {
@@ -87,7 +87,7 @@
       "name": "Caneca never settle",
       "type": "caneca",
       "price": 38.00,
-      "description": "lorem ipsum",
+      "description": "Caneca never settle preta",
       "stock": 4
     },
     {
@@ -96,7 +96,7 @@
       "name": "Caneca três árvores",
       "type": "caneca",
       "price": 29.99,
-      "description": "lorem ipsum",
+      "description": "Caneca três árvores preta",
       "stock": 2
     },
     {
@@ -105,7 +105,7 @@
       "name": "Caneca black ring",
       "type": "caneca",
       "price": 36.00,
-      "description": "lorem ipsum",
+      "description": "Caneca black ring preta",
       "stock": 5
     }
   ]

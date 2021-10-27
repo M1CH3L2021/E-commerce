@@ -25,7 +25,7 @@ export function Home() {
 
   useEffect(() => {
     const loadData = async () => {
-      api.get('/products')
+      await api.get('/products')
       .then(response => setProducts(response.data as Products[]))
     }
 

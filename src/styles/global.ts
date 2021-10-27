@@ -26,4 +26,11 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  .Toastify__toast-container {
+    font-size: 1.4rem;
+    width: 80%;
+    max-width: 35rem;
+    margin-left: 5rem;
+  }
 `

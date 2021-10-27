@@ -13,7 +13,7 @@ export function App() {
       <CartProvider>
         <Header />
         <Routes />
-        <ToastContainer autoClose={3000} style={{fontSize: '1.4rem', width: '35rem'}}/>
+        <ToastContainer autoClose={3000}/>
         <GlobalStyle />
       </CartProvider>
     </Router>
