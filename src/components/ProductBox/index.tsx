@@ -1,16 +1,9 @@
 import { Link } from 'react-router-dom';
+import { Product } from '../../Types';
 import { formatPrice } from '../../util/format';
 
 import { Container } from './styles';
 
-interface Product {
-  id: number
-  name: string
-  image: string
-  price: number
-  type: string
-  description: string
-}
 interface ProductBoxProps {
   product: Product
   id: number
@@ -31,18 +24,21 @@ export function ProductBox({ id, product, name, image, price, type, description 
         <span>
           {formatPrice(price)}
         </span>
-        <Link to={{
-          pathname: '/Product',
-          state: {
-            id: id,
-            product: product,
-            name: name,
-            image: image,
-            price: price,
-            type: type,
-            description: description
-          }
-        }} className="product-button">
+        <Link
+          className="product-button"
+          to={{
+            pathname: '/Product',
+            state: {
+              id: id,
+              product: product,
+              name: name,
+              image: image,
+              price: price,
+              type: type,
+              description: description
+            }
+          }}
+        >
           Ver mais
         </Link>
       </div>

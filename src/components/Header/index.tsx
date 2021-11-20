@@ -1,15 +1,31 @@
 import { useState } from 'react';
-import { useCart } from '../../hooks/useCart';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
+import { useProducts } from '../../hooks/useProducts';
+import { Product } from '../../Types';
 
 import { Container } from './styles';
 import shoppingBagIcon from '../../assets/shopping-bag.svg'
 
 export function Header() {
   const [inputValue, setInputValue] = useState('')
+  const [searchedProducts, setSearchedProducts] = useState<Product[]>([])
   const { cart } = useCart()
+  const { products } = useProducts()
 
   const isThereProductInCart = cart.length === 0 ? false : true
+
+  function handleSearchProduct(nameOfProductBeingSearched: string) {
+    setInputValue(nameOfProductBeingSearched)
+
+    const product = products.filter(product => {
+      const productName = product.name.toLowerCase()
+      return productName.includes(nameOfProductBeingSearched.toLowerCase())
+    })
+
+    setSearchedProducts([...product])
+    console.log(searchedProducts)
+  }
 
   return (
     <Container>
@@ -24,7 +40,7 @@ export function Header() {
             type="text" 
             placeholder="Procurando por algo específico?" 
             value={inputValue} 
-            onChange={(event) => setInputValue(event.target.value)}
+            onChange={(event) => handleSearchProduct(event.target.value)}
           />
           <Link to="/Cart" className="cart-button">
             <img src={shoppingBagIcon} alt="sacola" />

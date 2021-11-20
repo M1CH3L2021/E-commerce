@@ -33,9 +33,10 @@ export function CartProvider({ children }: CartProviderProps) {
     try {
       product.amount = 1
       const productExists = cart.find(cartProduct => cartProduct.id === product.id)
-      return productExists ?
-        toast.error('Produto já adicionado ao carrinho!') :
-        setCart([...cart, product])
+
+      return productExists
+        ? toast.error('Produto já adicionado ao carrinho!')
+        : setCart([...cart, product])
     } catch {
       toast.error('Erro ao adicionar produto ao carrinho')
     }
@@ -45,21 +46,24 @@ export function CartProvider({ children }: CartProviderProps) {
     const removedProductCart = cart.filter(cartProduct => {
       return cartProduct !== product
     })
+
     setCart([...removedProductCart])
   }
 
   const increaseCartProductAmount = (product: CartProduct) => {
     const amountMaxLimit = product.amount === product.stock
-    return amountMaxLimit ?
-      toast.error('Quantidade máxima no estoque atingida') :
-      product.amount += 1
+
+    return amountMaxLimit
+      ? toast.error('Quantidade máxima no estoque atingida')
+      : product.amount += 1
   }
 
   const decreaseCartProductAmount = (product: CartProduct) => {
     const amountMinLimit = product.amount === 1
-    return amountMinLimit ?
-      toast.error('Não é possível comprar menos que 1 produto') :
-      product.amount -= 1
+
+    return amountMinLimit
+      ? toast.error('Não é possível comprar menos que 1 produto')
+      : product.amount -= 1
   }
 
   return (
@@ -70,7 +74,5 @@ export function CartProvider({ children }: CartProviderProps) {
 }
 
 export function useCart() {
-  const context = useContext(CartContext)
-
-  return context
+  return useContext(CartContext)
 }

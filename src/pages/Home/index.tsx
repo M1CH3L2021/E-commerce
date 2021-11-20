@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
+import { useProducts } from '../../hooks/useProducts';
 import { ProductBox } from './../../components/ProductBox';
-import { api } from '../../services/api';
 
 import { Container } from './styles';
 
@@ -8,29 +8,10 @@ interface SelectedFilter {
   filter: 'todos' | 'camiseta' | 'caneca'
 }
 
-interface Products {
-  product: Products
-  id: number
-  image: string
-  name: string
-  type: string
-  price: number
-  description: string
-  stock: number
-}
 
 export function Home() {
   const [selectedFilter, setSelectedFilter] = useState<SelectedFilter>({ filter: 'todos' })
-  const [products, setProducts] = useState<Products[]>([])
-
-  useEffect(() => {
-    const loadData = async () => {
-      await api.get('/products')
-      .then(response => setProducts(response.data as Products[]))
-    }
-
-    loadData()
-  }, [])
+  const { products } = useProducts()
 
   return (
     <Container selectedFilter={selectedFilter}>
@@ -43,21 +24,18 @@ export function Home() {
 
       <section>
         {selectedFilter.filter === 'todos' &&
-          products.map(product => {
-            if (product.type === 'camiseta' || product.type === 'caneca')
-              return (
-                <ProductBox
-                  key={product.id}
-                  id={product.id}
-                  product={product}
-                  name={product.name}
-                  image={product.image}
-                  price={product.price}
-                  type={product.type}
-                  description={product.description}
-                />
-              )
-          })
+          products.map(product => (
+            <ProductBox
+              key={product.id}
+              id={product.id}
+              product={product}
+              name={product.name}
+              image={product.image}
+              price={product.price}
+              type={product.type}
+              description={product.description}
+            />
+          ))
         }
 
         {selectedFilter.filter === 'camiseta' &&
@@ -96,7 +74,7 @@ export function Home() {
           })
         }
       </section>
-      
+
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 
 import { BrowserRouter as Router } from 'react-router-dom';
-import { CartProvider } from './hooks/useCart';
+import { DataProvider } from './services/DataProvider';
+
 import { Header } from './components/Header';
 import { Routes } from './Routes';
 import { ToastContainer } from 'react-toastify';
@@ -10,12 +11,12 @@ import { GlobalStyle } from './styles/global';
 export function App() {
   return (
     <Router>
-      <CartProvider>
+      <DataProvider>
         <Header />
         <Routes />
         <ToastContainer autoClose={3000}/>
         <GlobalStyle />
-      </CartProvider>
+      </DataProvider>
     </Router>
   )
 }
