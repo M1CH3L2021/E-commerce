@@ -2,32 +2,29 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import { useProducts } from '../../hooks/useProducts';
-import { Product } from '../../Types';
 
 import { Container } from './styles';
 import shoppingBagIcon from '../../assets/shopping-bag.svg'
+import { api } from '../../services/api';
+import { Product } from '../../utils/types';
 
 export function Header() {
-  const [inputValue, setInputValue] = useState('')
+  const [search, setSearch] = useState('')
   
   const { cart } = useCart()
-  const { products, searchedProducts, searchProduct } = useProducts()
+  const { searchProduct } = useProducts()
 
-  const isThereProductInCart = cart.length !== 0
+  const thereIsProductInCart = cart.length !== 0
 
-  function handleSearchProduct(nameOfProductBeingSearched: string) {
-    setInputValue(nameOfProductBeingSearched)
+  async function handleSearchProduct(nameOfProductBeingSearched: string) {
+    setSearch(nameOfProductBeingSearched)
 
-    const product = products.filter(product => {
-      const productName = product.name.toLowerCase()
-      return productName.includes(nameOfProductBeingSearched.toLowerCase())
-    })
+    const { data } = await api.get(`/products?q=${nameOfProductBeingSearched}`)
+    
+    const products = data as Product[]
+    const searchBarIsEmpty = nameOfProductBeingSearched.length === 0
 
-    const isSearchBarEmpty = inputValue.length !== 0
-
-    searchProduct(product, isSearchBarEmpty)
-    console.log(searchedProducts)
-    console.log(inputValue.length)
+    searchProduct(products, searchBarIsEmpty)
   }
 
   return (
@@ -42,12 +39,12 @@ export function Header() {
           <input 
             type="text" 
             placeholder="Procurando por algo específico?" 
-            value={inputValue} 
-            onChange={(event) => handleSearchProduct(event.target.value)}
+            value={search} 
+            onChange={(e) => handleSearchProduct(e.target.value)}
           />
           <Link to="/Cart" className="cart-button">
             <img src={shoppingBagIcon} alt="sacola" />
-            {isThereProductInCart && <div className="cart-amount">{cart.length}</div>}
+            {thereIsProductInCart && <div className="cart-amount">{cart.length}</div>}
           </Link>
         </div>
 

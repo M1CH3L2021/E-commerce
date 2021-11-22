@@ -1,24 +1,14 @@
 import { useLocation } from 'react-router';
 import { useCart } from '../../hooks/useCart';
-import { formatPrice } from '../../util/format';
+import { formatPrice } from '../../utils/format';
+import { CartProduct, Product as ProductType } from '../../utils/types';
 
 import { Container } from './styles';
 import shoppingBagIcon from '../../assets/white-shopping-bag.svg'
 
-interface CartProduct {
-  id: number
-  image: string
-  name: string
-  type: string
-  price: number
-  description: string
-  amount: number
-  stock: number
-}
-
 export function Product() {
   const location = useLocation()
-  const { product, name, image, price, type, description }: any = location.state
+  const { product }: any = location.state
   const { addProductInCart } = useCart()
 
   function addProduct(product: CartProduct) {
@@ -28,18 +18,18 @@ export function Product() {
   return (
     <Container>
       
-      <img src={image} alt={name} className="product-image" loading="lazy" />
+      <img src={product.image} alt={product.name} className="product-image" loading="lazy" />
 
       <aside>
         <div>
-          <span>{type}</span>
-          <h1>{name}</h1>
+          <span>{product.type}</span>
+          <h1>{product.name}</h1>
           <span className="price">
-            {formatPrice(price)}
+            {formatPrice(product.price)}
           </span>
           <p className="freight">*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
           <h3>Descrição</h3>
-          <p>{description}</p>
+          <p>{product.description}</p>
         </div>
 
         <button onClick={() => addProduct(product)}>

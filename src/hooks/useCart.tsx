@@ -1,19 +1,9 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import { CartProduct } from "../utils/types";
 
 interface CartProviderProps {
   children: ReactNode
-}
-
-interface CartProduct {
-  id: number
-  image: string
-  name: string
-  type: string
-  price: number
-  description: string
-  amount: number
-  stock: number
 }
 
 interface CartContextData {

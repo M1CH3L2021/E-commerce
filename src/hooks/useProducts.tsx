@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState, useEffect, useContext } from "react";
 import { api } from "../services/api";
-import { Product } from "../Types";
+import { Product } from "../utils/types";
 
 interface ProductsProviderProps {
   children: ReactNode
@@ -12,7 +12,7 @@ interface ProductsContextData {
   products: Product[]
   searchedProducts: Product[]
   searchProduct: (product: Product[], isUserSearchingAProduct: boolean) => void
-  isUserSearchingAProduct: boolean
+  userIsSearchingAProduct: boolean
   selectedFilter: SelectedFilter
   changeFilter: (option: SelectedFilter) => void
 }
@@ -22,7 +22,7 @@ const ProductsContext = createContext({} as ProductsContextData)
 export function ProductsProvider({ children }: ProductsProviderProps) {
   const [products, setProducts] = useState<Product[]>([])
   const [searchedProducts, setSearchedProducts] = useState<Product[]>([])
-  const [isUserSearchingAProduct, setIsUserSearchingAProduct] = useState(false)
+  const [userIsSearchingAProduct, setUserIsSearchingAProduct] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState<SelectedFilter>('todos')
 
   useEffect(() => {
@@ -34,11 +34,11 @@ export function ProductsProvider({ children }: ProductsProviderProps) {
     loadData()
   }, [])
 
-  function searchProduct(product: Product[], isSearchBarEmpty: boolean) {
+  function searchProduct(products: Product[], searchBarIsEmpty: boolean) {
     setSelectedFilter('todos')
-    setSearchedProducts([...product])
-    setIsUserSearchingAProduct(isSearchBarEmpty)
-    console.log(isSearchBarEmpty)
+
+    setSearchedProducts([...products])
+    setUserIsSearchingAProduct(searchBarIsEmpty)
   }
 
   function changeFilter(option: SelectedFilter) {
@@ -51,7 +51,7 @@ export function ProductsProvider({ children }: ProductsProviderProps) {
         products,
         searchedProducts,
         searchProduct,
-        isUserSearchingAProduct,
+        userIsSearchingAProduct,
         selectedFilter,
         changeFilter
       }}

@@ -1,32 +1,17 @@
 import { useCart } from '../../hooks/useCart';
-import { formatPrice } from '../../util/format';
+import { formatPrice } from '../../utils/format';
+import { CartProduct } from '../../utils/types';
 
 import { Container } from './styles';
 import trashIcon from '../../assets/trash.svg'
 
-interface CartProduct {
-  id: number
-  name: string
-  image: string
-  price: number
-  type: string
-  amount: number
-  stock: number
-  description: string
-}
 interface CartProductBoxProps {
   cartProductAmount: number
   setCartProductAmount: (cartProductAmount: number) => void
   product: CartProduct
-  name: string
-  price: number
-  description: string
-  amount?: number
-  stock: number
-  image: string
 }
 
-export function CartProductBox({ cartProductAmount, setCartProductAmount, product, name, price, description, amount, stock, image }: CartProductBoxProps) {
+export function CartProductBox({ cartProductAmount, setCartProductAmount, product }: CartProductBoxProps) {
   const { removeProductFromCart, increaseCartProductAmount, decreaseCartProductAmount } = useCart()
 
   const decreaseAmount = (product: CartProduct) => {
@@ -38,7 +23,7 @@ export function CartProductBox({ cartProductAmount, setCartProductAmount, produc
 
   const increaseAmount = (product: CartProduct) => {
     increaseCartProductAmount(product)
-    if (cartProductAmount !== stock) {
+    if (cartProductAmount !== product.stock) {
       setCartProductAmount(cartProductAmount + 1)
     }
   }
@@ -46,25 +31,25 @@ export function CartProductBox({ cartProductAmount, setCartProductAmount, produc
   return (
     <Container>
 
-      <img src={image} alt={name} />
+      <img src={product.image} alt={product.name} />
 
       <div className="info">
         <div className="top">
-          <h3>{name}</h3>
+          <h3>{product.name}</h3>
           <button>
             <img src={trashIcon} alt="remover" loading="lazy" onClick={() => removeProductFromCart(product)}/>
           </button>
         </div>
         <p>
-          {description}
+          {product.description}
         </p>
         <div className="amount">
           <div>
             <button onClick={() => decreaseAmount(product)}>-</button>
-            <input type="number" readOnly value={amount}/>
+            <input type="number" readOnly value={product.amount}/>
             <button onClick={() => increaseAmount(product)}>+</button>
           </div>
-          <span>{formatPrice(amount !== undefined ? price * amount : price)}</span>
+          <span>{formatPrice(product.amount !== undefined ? product.price * product.amount : product.price)}</span>
         </div>
       </div>
 

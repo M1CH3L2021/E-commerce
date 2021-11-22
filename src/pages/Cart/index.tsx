@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useCart } from '../../hooks/useCart';
 import { CartProductBox } from '../../components/CartProductBox';
-import { formatPrice } from '../../util/format';
+import { formatPrice } from '../../utils/format';
 
 import { Container } from './styles';
 
@@ -31,12 +31,6 @@ export function Cart() {
                 cartProductAmount={cartProductAmount}
                 setCartProductAmount={setCartProductAmount}
                 product={cartProduct}
-                name={cartProduct.name}
-                price={cartProduct.price}
-                description={cartProduct.description}
-                amount={cartProduct.amount}
-                stock={cartProduct.stock}
-                image={cartProduct.image}
               />
             )
         })}
