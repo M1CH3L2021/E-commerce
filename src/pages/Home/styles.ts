@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 interface ContainerProps {
-  selectedFilter: {
-    filter: 'todos' | 'camiseta' | 'caneca'
-  }
+  selectedFilter: 'todos' | 'camiseta' | 'caneca'
 }
 
 export const Container = styled.div`
@@ -32,20 +30,25 @@ export const Container = styled.div`
       }
 
       &.all {
-        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'todos' ? 600 : 400};
-        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'todos' ? '.4rem solid #FFA585' : 'none'};
+        font-weight: ${(props: ContainerProps) => props.selectedFilter === 'todos' ? 600 : 400};
+        border-bottom: ${(props: ContainerProps) => props.selectedFilter === 'todos' ? '.4rem solid #FFA585' : 'none'};
       }
 
       &.shirts {
-        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'camiseta' ? 600 : 400};
-        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'camiseta' ? '.4rem solid #FFA585' : 'none'};
+        font-weight: ${(props: ContainerProps) => props.selectedFilter === 'camiseta' ? 600 : 400};
+        border-bottom: ${(props: ContainerProps) => props.selectedFilter === 'camiseta' ? '.4rem solid #FFA585' : 'none'};
       }
 
       &.mugs {
-        font-weight: ${(props: ContainerProps) => props.selectedFilter.filter === 'caneca' ? 600 : 400};
-        border-bottom: ${(props: ContainerProps) => props.selectedFilter.filter === 'caneca' ? '.4rem solid #FFA585' : 'none'};
+        font-weight: ${(props: ContainerProps) => props.selectedFilter === 'caneca' ? 600 : 400};
+        border-bottom: ${(props: ContainerProps) => props.selectedFilter === 'caneca' ? '.4rem solid #FFA585' : 'none'};
       }
     }
+  }
+
+  .loader-container {
+    width: max-content;
+    margin: 0 auto;
   }
 
   section {
@@ -53,6 +56,10 @@ export const Container = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     gap: 3.2rem 2.2rem;
+
+    h1 {
+      font-size: 2.2rem
+    }
   }
 
   @media screen and (max-width: 700px) {

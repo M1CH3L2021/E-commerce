@@ -9,11 +9,11 @@ import shoppingBagIcon from '../../assets/shopping-bag.svg'
 
 export function Header() {
   const [inputValue, setInputValue] = useState('')
-  const [searchedProducts, setSearchedProducts] = useState<Product[]>([])
+  
   const { cart } = useCart()
-  const { products } = useProducts()
+  const { products, searchedProducts, searchProduct } = useProducts()
 
-  const isThereProductInCart = cart.length === 0 ? false : true
+  const isThereProductInCart = cart.length !== 0
 
   function handleSearchProduct(nameOfProductBeingSearched: string) {
     setInputValue(nameOfProductBeingSearched)
@@ -23,8 +23,11 @@ export function Header() {
       return productName.includes(nameOfProductBeingSearched.toLowerCase())
     })
 
-    setSearchedProducts([...product])
+    const isSearchBarEmpty = inputValue.length !== 0
+
+    searchProduct(product, isSearchBarEmpty)
     console.log(searchedProducts)
+    console.log(inputValue.length)
   }
 
   return (
