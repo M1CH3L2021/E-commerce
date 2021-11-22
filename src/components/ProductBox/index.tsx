@@ -4,7 +4,7 @@ import { formatPrice } from '../../utils/format';
 
 import { Container } from './styles';
 
-interface ProductBoxProps {
+export interface ProductBoxProps {
   product: Product
 }
 
@@ -23,13 +23,7 @@ export function ProductBox({ product }: ProductBoxProps) {
           to={{
             pathname: '/Product',
             state: {
-              id: product.id,
               product: product,
-              name: product.name,
-              image: product.image,
-              price: product.price,
-              type: product.type,
-              description: product.description
             }
           }}
         >

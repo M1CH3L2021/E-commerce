@@ -1,6 +1,6 @@
 import { useProducts } from '../../hooks/useProducts';
 import Loader from "react-loader-spinner"
-import { ProductBox } from './../../components/ProductBox';
+import { ProductBox } from '../../components/ProductBox';
 
 import { Container } from './styles';
 
@@ -11,7 +11,7 @@ export function Home() {
     <Container selectedFilter={selectedFilter}>
 
       <ul>
-        <li className="all" onClick={(event) => changeFilter('todos')}>Todos os produtos</li>
+        <li className="all" onClick={() => changeFilter('todos')}>Todos os produtos</li>
         <li className="shirts" onClick={() => changeFilter('camiseta')}>Camisetas</li>
         <li className="mugs" onClick={() => changeFilter('caneca')}>Canecas</li>
       </ul>
