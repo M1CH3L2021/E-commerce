@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router';
 import { useCart } from '../../hooks/useCart';
 import { formatPrice } from '../../utils/format';
-import { CartProduct, Product as ProductType } from '../../utils/types';
+import { CartProduct } from '../../utils/types';
 
 import { Container } from './styles';
 import shoppingBagIcon from '../../assets/white-shopping-bag.svg'

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Product } from '../../utils/types';
 import { formatPrice } from '../../utils/format';
+import { lazy } from 'react'
 
 import { Container } from './styles';
 
